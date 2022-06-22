@@ -26,7 +26,8 @@ func InsertOrUpdateProduct(payload models.Product) models.Product {
 }
 
 // Delete product by product Code
-func DeleteProduct(productCode string) {
+func DeleteProduct(productCode string) map[string]models.Product {
 	product := *models.Storage()
 	delete(product, productCode)
+	return GetProducts()
 }
